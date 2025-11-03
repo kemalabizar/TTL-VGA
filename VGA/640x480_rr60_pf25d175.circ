@@ -107,6 +107,9 @@
     <comp lib="0" loc="(1020,80)" name="Tunnel">
       <a name="label" val="Access_RAM"/>
     </comp>
+    <comp lib="0" loc="(1050,340)" name="Tunnel">
+      <a name="label" val="IRQ_VGA_Driver"/>
+    </comp>
     <comp lib="0" loc="(320,170)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="fanout" val="10"/>
@@ -175,6 +178,14 @@
       <a name="facing" val="east"/>
       <a name="label" val="V_Sync"/>
     </comp>
+    <comp lib="0" loc="(950,320)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="Access_RAM"/>
+    </comp>
+    <comp lib="0" loc="(950,360)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="PixelClock"/>
+    </comp>
     <comp lib="0" loc="(960,100)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="V_Visible"/>
@@ -202,6 +213,9 @@
     </comp>
     <comp lib="0" loc="(980,280)" name="Ground"/>
     <comp lib="1" loc="(1010,80)" name="AND Gate">
+      <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(1040,340)" name="AND Gate">
       <a name="size" val="30"/>
     </comp>
     <comp lib="1" loc="(400,130)" name="AND Gate">
@@ -277,9 +291,7 @@
       <a name="facing" val="north"/>
       <a name="inputs" val="10"/>
       <a name="negate0" val="true"/>
-      <a name="negate2" val="true"/>
-      <a name="negate3" val="true"/>
-      <a name="negate4" val="true"/>
+      <a name="negate5" val="true"/>
       <a name="negate7" val="true"/>
       <a name="negate9" val="true"/>
       <a name="size" val="30"/>
@@ -288,13 +300,12 @@
       <a name="facing" val="south"/>
       <a name="inputs" val="10"/>
       <a name="negate0" val="true"/>
-      <a name="negate2" val="true"/>
-      <a name="negate3" val="true"/>
-      <a name="negate4" val="true"/>
+      <a name="negate5" val="true"/>
       <a name="negate8" val="true"/>
       <a name="negate9" val="true"/>
       <a name="size" val="30"/>
     </comp>
+    <comp lib="1" loc="(990,360)" name="NOT Gate"/>
     <comp lib="4" loc="(120,420)" name="Counter">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="Counter_Vert"/>
@@ -339,11 +350,11 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="trigger" val="high"/>
     </comp>
-    <comp lib="8" loc="(23,763)" name="Text">
+    <comp lib="8" loc="(20,760)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="Circuit version: 1.0 (01/11/2025 22:53 GMT+7)"/>
     </comp>
-    <comp lib="8" loc="(24,783)" name="Text">
+    <comp lib="8" loc="(20,780)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="Features in progress: IRQ circuitry to access RAM when need to display video pixels"/>
     </comp>
@@ -353,8 +364,13 @@
     <wire from="(100,470)" to="(120,470)"/>
     <wire from="(100,490)" to="(120,490)"/>
     <wire from="(100,90)" to="(120,90)"/>
+    <wire from="(1000,320)" to="(1000,330)"/>
+    <wire from="(1000,330)" to="(1010,330)"/>
+    <wire from="(1000,350)" to="(1000,360)"/>
+    <wire from="(1000,350)" to="(1010,350)"/>
     <wire from="(1010,30)" to="(1020,30)"/>
     <wire from="(1010,80)" to="(1020,80)"/>
+    <wire from="(1040,340)" to="(1050,340)"/>
     <wire from="(110,110)" to="(110,130)"/>
     <wire from="(110,110)" to="(120,110)"/>
     <wire from="(110,130)" to="(120,130)"/>
@@ -470,20 +486,20 @@
     <wire from="(500,160)" to="(500,250)"/>
     <wire from="(500,250)" to="(500,290)"/>
     <wire from="(500,250)" to="(590,250)"/>
-    <wire from="(500,530)" to="(500,610)"/>
-    <wire from="(500,610)" to="(500,640)"/>
+    <wire from="(500,520)" to="(500,610)"/>
+    <wire from="(500,610)" to="(500,650)"/>
     <wire from="(500,610)" to="(590,610)"/>
     <wire from="(510,170)" to="(510,240)"/>
     <wire from="(510,240)" to="(510,290)"/>
     <wire from="(510,240)" to="(590,240)"/>
-    <wire from="(510,530)" to="(510,600)"/>
-    <wire from="(510,600)" to="(510,640)"/>
+    <wire from="(510,520)" to="(510,600)"/>
+    <wire from="(510,600)" to="(510,650)"/>
     <wire from="(510,600)" to="(590,600)"/>
     <wire from="(520,170)" to="(520,230)"/>
     <wire from="(520,230)" to="(520,290)"/>
     <wire from="(520,230)" to="(590,230)"/>
-    <wire from="(520,530)" to="(520,590)"/>
-    <wire from="(520,590)" to="(520,640)"/>
+    <wire from="(520,520)" to="(520,590)"/>
+    <wire from="(520,590)" to="(520,650)"/>
     <wire from="(520,590)" to="(590,590)"/>
     <wire from="(530,120)" to="(530,130)"/>
     <wire from="(530,120)" to="(670,120)"/>
@@ -496,8 +512,8 @@
     <wire from="(540,160)" to="(540,220)"/>
     <wire from="(540,220)" to="(540,290)"/>
     <wire from="(540,220)" to="(590,220)"/>
-    <wire from="(540,520)" to="(540,580)"/>
-    <wire from="(540,580)" to="(540,650)"/>
+    <wire from="(540,530)" to="(540,580)"/>
+    <wire from="(540,580)" to="(540,640)"/>
     <wire from="(540,580)" to="(590,580)"/>
     <wire from="(550,170)" to="(550,210)"/>
     <wire from="(550,210)" to="(550,280)"/>
@@ -576,6 +592,8 @@
     <wire from="(90,470)" to="(100,470)"/>
     <wire from="(950,160)" to="(960,160)"/>
     <wire from="(950,260)" to="(960,260)"/>
+    <wire from="(950,320)" to="(1000,320)"/>
+    <wire from="(950,360)" to="(960,360)"/>
     <wire from="(960,100)" to="(970,100)"/>
     <wire from="(960,60)" to="(970,60)"/>
     <wire from="(970,60)" to="(970,70)"/>
@@ -584,5 +602,6 @@
     <wire from="(970,90)" to="(980,90)"/>
     <wire from="(980,140)" to="(1000,140)"/>
     <wire from="(980,240)" to="(1000,240)"/>
+    <wire from="(990,360)" to="(1000,360)"/>
   </circuit>
 </project>
